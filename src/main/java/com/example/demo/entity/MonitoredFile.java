@@ -15,12 +15,12 @@ public class MonitoredFile {
     private String backupPath;
     private LocalDateTime lastModified;
 
-    private boolean encrypted; // ✅ for ransomware simulation
+    private boolean encrypted;
 
-    // Default constructor
+    
     public MonitoredFile() {}
 
-    // Parameterized constructor
+    
     public MonitoredFile(String fileName, String filePath, String backupPath, LocalDateTime lastModified) {
         this.fileName = fileName;
         this.filePath = filePath;
@@ -29,7 +29,7 @@ public class MonitoredFile {
         this.encrypted = false;
     }
 
-    // ✅ Getters and Setters
+    
     public Long getId() {
         return id;
     }
