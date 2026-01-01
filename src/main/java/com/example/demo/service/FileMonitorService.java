@@ -27,12 +27,12 @@ public class FileMonitorService {
         this.repo = repo;
     }
 
-    // Upload file and create a backup
+    
     public MonitoredFile saveFile(MultipartFile file) throws IOException {
         Path uploadPath = Paths.get(monitorDir, file.getOriginalFilename());
         Files.copy(file.getInputStream(), uploadPath, StandardCopyOption.REPLACE_EXISTING);
 
-        // Backup copy
+        
         Path backupPath = Paths.get(backupDir, file.getOriginalFilename());
         Files.copy(file.getInputStream(), backupPath, StandardCopyOption.REPLACE_EXISTING);
 
@@ -49,7 +49,7 @@ public class FileMonitorService {
         return repo.findAll();
     }
 
-    // Simulate ransomware attack (encrypt file)
+   
     public String encryptFile(Long id) throws IOException {
         MonitoredFile mf = repo.findById(id).orElseThrow();
         Path path = Paths.get(mf.getFilePath());
@@ -60,7 +60,7 @@ public class FileMonitorService {
     }
 
     
-    // Rollback to original backup
+    
     public String rollbackFile(Long id) throws IOException {
         MonitoredFile mf = repo.findById(id).orElseThrow();
         Path original = Paths.get(mf.getFilePath());
